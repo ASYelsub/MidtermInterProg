@@ -26,9 +26,12 @@ public class FeatureMove : MonoBehaviour
 
     private void OnMouseDown()
     {
-        lerpNumber = Random.Range(0f, .5f);
-        targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        myTargetPos = Vector3.Lerp(transform.position, targetPos, lerpNumber);
+        if (MouthDrag.overMouth == false)
+        {
+            lerpNumber = Random.Range(0f, .5f);
+            targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            myTargetPos = Vector3.Lerp(transform.position, targetPos, lerpNumber);
+        }
     }
 
 
