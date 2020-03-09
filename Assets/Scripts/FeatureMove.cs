@@ -16,7 +16,7 @@ public class FeatureMove : MonoBehaviour
     void Update()
     {
         target.transform.position = targetPos;
-        Debug.Log(targetPos);
+//        Debug.Log(targetPos);
         if (Input.GetMouseButtonDown(0))
         {
             OnMouseDown();
