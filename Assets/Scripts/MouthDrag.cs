@@ -20,23 +20,22 @@ public class MouthDrag : MonoBehaviour
     public static bool overMouth; //This script also disables other scripts from running when the player is using the mouth.
     private SpriteRenderer thisSR;
     private Transform thisTransform;
-    private Vector3 thisPosition;
+    private Vector3 newPosition;
     [SerializeField]
     private Sprite[] mouthParts = new Sprite[2];
     
     void Start()
     {
+        thisSR = this.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        thisTransform = this.GetComponent<Transform>();
-        thisPosition = thisTransform.position;
-        thisSR = this.GetComponent<SpriteRenderer>();
-        print(isClicked);
-       // velocity = Input.GetAxis("Mouse Y");
-        print(velocity);
 
+        print(isClicked);
+        // velocity = Input.GetAxis("Mouse Y");
+     //   print(velocity);
+     
     }
 
     private void OnMouseEnter()
@@ -57,7 +56,7 @@ public class MouthDrag : MonoBehaviour
         if (isClicked) //this bool here makes it so that the color doesn't flicker between red and yellow,
                                 //in order to emphasize the feeling of Pulling the player will experience.
         {
-            if (velocity > Mathf.Abs(redThresh))
+            if (velocity > redThresh)
             {
                 mouthCornerSR.enabled = true;
                 mouthCornerSR.sprite = mouthParts[1];
@@ -65,11 +64,21 @@ public class MouthDrag : MonoBehaviour
                 print("was dragged");
                 
             }
-            else if (velocity > Mathf.Abs(yellowThresh))
+            else if (velocity > yellowThresh)
             {
                 mouthCornerSR.enabled = true;
                 mouthCornerSR.sprite = mouthParts[0];
                 thisSR.color = Color.yellow;
+            }
+            else if (velocity < -redThresh)
+            {
+                mouthCornerSR.enabled = false;
+                thisSR.color = Color.blue;
+            }
+            else if (velocity < -yellowThresh)
+            {
+                mouthCornerSR.enabled = true;
+                mouthCornerSR.sprite = mouthParts[0];
             }
             //Debug.Log("Velocity: " + velocity + " Threshold: " + redThresh);
             //Debug.Log("Velocity: " + velocity + " Threshold: " + yellowThresh);
