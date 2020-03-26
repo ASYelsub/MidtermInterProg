@@ -35,58 +35,64 @@ public class MouthExpand : MonoBehaviour
         
         //print(initialScale);
         //print(timer);
-        
-        if (clickedCount == 0)
+        if (MouthDrag.isBigger == false)
         {
-            thisTransform.localScale = initialScale;
-            thisTransform.localPosition = initialPosition;
-            thisTransform.localEulerAngles = initialRotation;
-        }
-        else if (clickedCount == 1)
-        {
-            timer += 1 * Time.deltaTime;
-            thisTransform.localScale = newScale;
-            thisTransform.localEulerAngles = initialRotation;
-            thisTransform.localPosition = newPosition;
-        }
-        if(clickedCount == 2)
-        {
-            thisTransform.localScale = newScale;
-            thisTransform.localEulerAngles = newRotation;
-            thisTransform.localPosition = newPosition;
-            resetTimer += 1 * Time.deltaTime;
-        }
-        if(timer > 2f)
-        {
-            Unclicked(0);
-        }
+            if (clickedCount == 0)
+            {
+                thisTransform.localScale = initialScale;
+                thisTransform.localPosition = initialPosition;
+                thisTransform.localEulerAngles = initialRotation;
+            }
+            else if (clickedCount == 1)
+            {
+                timer += 1 * Time.deltaTime;
+                thisTransform.localScale = newScale;
+                thisTransform.localEulerAngles = initialRotation;
+                thisTransform.localPosition = newPosition;
+            }
+            if(clickedCount == 2)
+            {
+                thisTransform.localScale = newScale;
+                thisTransform.localEulerAngles = newRotation;
+                thisTransform.localPosition = newPosition;
+                resetTimer += 1 * Time.deltaTime;
+            }
+            if(timer > 2f)
+            {
+                Unclicked(0);
+            }
 
-        if (resetTimer > 2f)
-        {
-            Unclicked( 0);
+            if (resetTimer > 2f)
+            {
+                Unclicked( 0);
+            }
         }
+        
         
         
     }
     private void OnMouseUp()
     {
         print("goes into func");
-        if (clickedCount == 0)
+        if (MouthDrag.isBigger == false)
         {
-            print("first time");
-            ClickedOnce(0);
-            //thisSR.color = Color.yellow;
-            newScale = Vector3.Lerp(thisScale, new Vector3(0.90625f,1.46875f,1f), 1);
-            newPosition = Vector3.Lerp(thisPosition, new Vector3(0.90625f, -3.04f, -3), 1);
+            if (clickedCount == 0)
+            {
+                print("first time");
+                ClickedOnce(0);
+                //thisSR.color = Color.yellow;
+                newScale = Vector3.Lerp(thisScale, new Vector3(0.90625f,1.46875f,1f), 1);
+                newPosition = Vector3.Lerp(thisPosition, new Vector3(0.90625f, -3.04f, -3), 1);
 
-        }
-        else if(clickedCount == 1)
-        {
-            print("second time");
-            ClickedOnce(1);
-            newScale = Vector3.Lerp(thisScale, new Vector3(-1.504269f,3.26212f,1f), 1);
-            newRotation = Vector3.Lerp(thisRotation,new Vector3(0,0,-40.531f),1);
-            newPosition = Vector3.Lerp(thisPosition, new Vector3(-0.01f, 0.31f, -3), 1);
+            }
+            else if(clickedCount == 1)
+            {
+                print("second time");
+                ClickedOnce(1);
+                newScale = Vector3.Lerp(thisScale, new Vector3(-1.504269f,3.26212f,1f), 1);
+                newRotation = Vector3.Lerp(thisRotation,new Vector3(0,0,-40.531f),1);
+                newPosition = Vector3.Lerp(thisPosition, new Vector3(-0.01f, 0.31f, -3), 1);
+            }
         }
     }
     void ClickedOnce(int cc)

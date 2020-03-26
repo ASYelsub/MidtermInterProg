@@ -17,6 +17,7 @@ public class MouthDrag : MonoBehaviour
     private SpriteRenderer mouthCornerSR;
     private float velocity;
     private bool isClicked;
+    public static bool isBigger;
     public static bool overMouth; //This script also disables other scripts from running when the player is using the mouth.
     private SpriteRenderer thisSR;
     private Transform thisTransform;
@@ -46,7 +47,6 @@ public class MouthDrag : MonoBehaviour
     private void OnMouseDown()
     {
         isClicked = true;
-
     }
 
     private void OnMouseDrag()
@@ -62,23 +62,27 @@ public class MouthDrag : MonoBehaviour
                 mouthCornerSR.sprite = mouthParts[1];
                 thisSR.color = Color.red;
                 print("was dragged");
-                
+                isBigger = true;
+
             }
             else if (velocity > yellowThresh)
             {
                 mouthCornerSR.enabled = true;
                 mouthCornerSR.sprite = mouthParts[0];
                 thisSR.color = Color.yellow;
+                isBigger = true;
             }
             else if (velocity < -redThresh)
             {
                 mouthCornerSR.enabled = false;
                 thisSR.color = Color.blue;
+                isBigger = false;
             }
             else if (velocity < -yellowThresh)
             {
                 mouthCornerSR.enabled = true;
                 mouthCornerSR.sprite = mouthParts[0];
+                isBigger = true;
             }
             //Debug.Log("Velocity: " + velocity + " Threshold: " + redThresh);
             //Debug.Log("Velocity: " + velocity + " Threshold: " + yellowThresh);
