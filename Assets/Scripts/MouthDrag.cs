@@ -53,7 +53,7 @@ public class MouthDrag : MonoBehaviour
     {
         velocity = Input.GetAxis("Mouse Y");
         //Debug.Log(velocity);
-        if (isClicked) //this bool here makes it so that the color doesn't flicker between red and yellow,
+        if (isClicked && MouthExpand.clickedCount <= 1) //this bool here makes it so that the color doesn't flicker between red and yellow,
                                 //in order to emphasize the feeling of Pulling the player will experience.
         {
             if (velocity > redThresh)
