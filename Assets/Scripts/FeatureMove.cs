@@ -7,7 +7,7 @@ public class FeatureMove : MonoBehaviour
     public GameObject target;
     Vector2 targetPos;
     Vector2 myTargetPos;
-    float lerpNumber;
+    float lerpNumber = 1;
     void Start()
     {
         myTargetPos = this.transform.position;
