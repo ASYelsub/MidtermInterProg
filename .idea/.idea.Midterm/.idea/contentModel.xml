@@ -6,6 +6,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="FeatureMove.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="MouthDrag.cs" t="Include" />
           <e p="MouthExpand.cs" t="Include" />
           <e p="ThornMove.cs" t="Include" />
