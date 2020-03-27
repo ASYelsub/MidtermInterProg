@@ -8,6 +8,7 @@
           <e p="FeatureMove.cs" t="Include" />
           <e p="MouthDrag.cs" t="Include" />
           <e p="MouthExpand.cs" t="Include" />
+          <e p="PlayAudio.cs" t="Include" />
           <e p="ThornMove.cs" t="Include" />
         </e>
       </e>
