@@ -50,26 +50,26 @@ public class MouthExpand : MonoBehaviour
                 thisTransform.localEulerAngles = initialRotation;
                 thisTransform.localPosition = newPosition;
             }
-            if(clickedCount == 2)
+
+            if (clickedCount == 2)
             {
                 thisTransform.localScale = newScale;
                 thisTransform.localEulerAngles = newRotation;
                 thisTransform.localPosition = newPosition;
                 resetTimer += 1 * Time.deltaTime;
             }
-            if(timer > 2f)
+
+            if (timer > 2f)
             {
                 Unclicked(0);
             }
 
             if (resetTimer > 2f)
             {
-                Unclicked( 0);
+                Unclicked(0);
             }
         }
-        
-        
-        
+
     }
     private void OnMouseUp()
     {
@@ -94,6 +94,14 @@ public class MouthExpand : MonoBehaviour
                 newPosition = Vector3.Lerp(thisPosition, new Vector3(-0.01f, 0.31f, -3), 1);
             }
         }
+    }
+    private void OnMouseEnter()
+    {
+        MouthDrag.overMouth = true; //an integration of the variable declared in MouthDrag
+    }
+    private void OnMouseExit()
+    {
+        MouthDrag.overMouth = false; //and then this as well
     }
     void ClickedOnce(int cc)
     {

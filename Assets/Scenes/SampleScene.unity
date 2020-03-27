@@ -1023,7 +1023,6 @@ GameObject:
   - component: {fileID: 1721086991}
   - component: {fileID: 1721086990}
   - component: {fileID: 1721086992}
-  - component: {fileID: 1721086993}
   m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
@@ -1105,7 +1104,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f56d78386ecc94d6889ed4f1fe561c59, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -1190,18 +1189,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1721086993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721086989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f51f70eddf144784a407418dfc10b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2067717875
 GameObject:
   m_ObjectHideFlags: 0

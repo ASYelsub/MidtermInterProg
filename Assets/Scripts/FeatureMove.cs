@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This script affects how the two eyes lerp to the position of the mouse when the player clicks somewhere.
 public class FeatureMove : MonoBehaviour
 {
-    public GameObject target;
+    //Declaration of variables and components that will be used.
+    public GameObject target; //The target is the invisble object that's position changes instantaneously when click happens.
     Vector2 targetPos;
     Vector2 myTargetPos;
     float lerpNumber = 1;
