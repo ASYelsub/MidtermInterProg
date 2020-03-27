@@ -60,8 +60,9 @@ public class MouthDrag : MonoBehaviour
                                                 //this velocity is set according to how quick the player is moving the mouse
                                                     //on the Y axis of the computer screen.
         //Debug.Log(velocity);
-        if (isClicked && MouthExpand.clickedCount <= 1) //this bool here makes it so that the color doesn't flicker between red and yellow,
+        if (isClicked && MouthExpand.clickedCount < 1) //this bool here makes it so that the color doesn't flicker between red and yellow,
                                 //in order to emphasize the feeling of Pulling the player will experience.
+                                    //clickedCount is there so you can't drag when the mouth is big
         {
             if (velocity > redThresh) //redThresh & yellowThresh are set in the editor, they are the number which the velocity
                                             //of the mouse movement must surpass in order for the mouth to change states.
